@@ -12,6 +12,7 @@
 </template>
 <script>
     import store from '@/store'
+    import {mapState} from 'vuex';
     export default{
         data(){
             return{
@@ -20,9 +21,18 @@
             }
         },
         computed:{
-            count(){
-                return this.$store.state.count;
-            }
+            // 常规写法
+            // count(){
+            //     return this.$store.state.count;
+            // },  
+
+            // mapState写法一
+            // ...mapState({
+            //     count:state=>state.count
+            // })
+
+            // mapState写法二
+            ...mapState(['count'])
         },
         store
         
