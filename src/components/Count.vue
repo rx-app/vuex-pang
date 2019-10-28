@@ -2,17 +2,28 @@
     <div>
         <!-- <h2>{{msg}}</h2>
         <hr/> -->
-        <h3>{{$store.state.count}}</h3>
+        <!-- 常规取值写法 -->
+        <!-- <h3>{{$store.state.count}}</h3> -->
+
+        <!-- mapState取值写法 -->
         <h3>{{count}}</h3>
-        <div>
+
+        <!-- 常规commit写法 -->
+        <!-- <div>
             <button @click="$store.commit('add',10)">+</button>
             <button @click="$store.commit('reduce')">-</button>
+        </div> -->
+
+        <!-- mapMutations写法 -->
+        <div>
+            <button @click="add(10)">+</button>
+            <button @click="reduce()">-</button>
         </div>
     </div>
 </template>
 <script>
     import store from '@/store'
-    import {mapState} from 'vuex';
+    import {mapState,mapMutations} from 'vuex';
     export default{
         data(){
             return{
@@ -33,6 +44,9 @@
 
             // mapState写法二
             ...mapState(['count'])
+        },
+        methods:{
+            ...mapMutations(['add','reduce'])
         },
         store
         
