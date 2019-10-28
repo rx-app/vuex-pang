@@ -5,7 +5,7 @@
         <h3>{{$store.state.count}}</h3>
         <h3>{{count}}</h3>
         <div>
-            <button @click="$store.commit('add')">+</button>
+            <button @click="$store.commit('add',10)">+</button>
             <button @click="$store.commit('reduce')">-</button>
         </div>
     </div>
