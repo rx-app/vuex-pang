@@ -21,6 +21,13 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    addAction(context){
+      context.commit('add',10)
+    },
+    reduceAction({ commit }){
+      setTimeout(() => { commit('reduce') }, 3000);
+      console.log('我比reduce提前执行');
+    }
   },
   modules: {
   }

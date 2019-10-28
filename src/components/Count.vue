@@ -19,11 +19,16 @@
             <button @click="add(10)">+</button>
             <button @click="reduce()">-</button>
         </div>
+
+        <div>
+            <button @click="addAction">+</button>
+            <button @click="reduceAction">-</button>
+        </div>
     </div>
 </template>
 <script>
     import store from '@/store'
-    import {mapState,mapMutations,mapGetters} from 'vuex';
+    import {mapState,mapMutations,mapGetters,mapActions} from 'vuex';
     export default{
         data(){
             return{
@@ -52,10 +57,11 @@
             // }
 
             // mapGetters的写法
-            ...mapGetters(['count'])
+            // ...mapGetters(['count'])
         },
         methods:{
-            ...mapMutations(['add','reduce'])
+            ...mapMutations(['add','reduce']),
+            ...mapActions(['addAction','reduceAction'])
         },
         store
         
