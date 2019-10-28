@@ -23,7 +23,7 @@
 </template>
 <script>
     import store from '@/store'
-    import {mapState,mapMutations} from 'vuex';
+    import {mapState,mapMutations,mapGetters} from 'vuex';
     export default{
         data(){
             return{
@@ -43,7 +43,16 @@
             // })
 
             // mapState写法二
-            ...mapState(['count'])
+            ...mapState(['count']),
+
+            // getter和state里的属性重名的时候，会取getter里的属性值
+            // getter的常规写法
+            // count(){
+            //     return this.$store.getters.count;
+            // }
+
+            // mapGetters的写法
+            ...mapGetters(['count'])
         },
         methods:{
             ...mapMutations(['add','reduce'])
